@@ -71,7 +71,7 @@ def handle_userinput(user_question):
 
 def main():
     load_dotenv()
-    st.set_page_config(page_title="Chat with multiple PDFs",
+    st.set_page_config(page_title="Chat with your PDFs",
                        page_icon=":books:")
     st.write(css, unsafe_allow_html=True)
 
@@ -79,11 +79,20 @@ def main():
         st.session_state.conversation = None
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = None
+    if "vector_db" not in st.session_state:
+        st.session_state.vector_db = False
 
     st.header("Chat with multiple PDFs :books:")
+    st.text("Upload your pdf and ask question related to the context..., ")
+
+
     user_question = st.text_input("Ask a question about your documents:")
-    if user_question:
+
+    st.write(user_template, unsafe_allow_html=True)
+    if user_question and st.session_state.vector_db:
         handle_userinput(user_question)
+    else:
+        st.write("provide context pdf first")
 
     with st.sidebar:
         st.subheader("Your documents")
@@ -103,6 +112,8 @@ def main():
                 # create conversation chain
                 st.session_state.conversation = get_conversation_chain(
                     vectorstore)
+
+                st.session_state.vector_db = True
 
 
 if __name__ == '__main__':

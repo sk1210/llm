@@ -33,11 +33,10 @@ bot_template = '''
     <div class="message">{{MSG}}</div>
 </div>
 '''
-
 user_template = '''
 <div class="chat-message user">
     <div class="avatar">
-        <img src="https://i.ibb.co/rdZC7LZ/Photo-logo-1.png">
+        <img src="https://i.ibb.co/4VdDzVP/Whats-App-Image-2024-07-13-at-21-04-19.jpg">
     </div>    
     <div class="message">{{MSG}}</div>
 </div>
