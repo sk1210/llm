@@ -1,18 +1,18 @@
 import streamlit as st
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.embeddings import OpenAIEmbeddings, HuggingFaceInstructEmbeddings
+from langchain.embeddings import OpenAIEmbeddings
+# , HuggingFaceInstructEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from htmltemplate import css, bot_template, user_template
-from langchain.llms import HuggingFaceHub
+# from langchain.llms import HuggingFaceHub
 import os
 
-os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
-os.environ["OPENAI_API_KEY"] ="sk-proj-dScQ9lYmQohioA9u7SGjT3BlbkFJb4pv9s8nJnVOibC6k69S"
+
 
 def get_pdf_text(pdf_docs):
     text = ""
@@ -70,7 +70,7 @@ def handle_userinput(user_question):
 
 
 def main():
-    # load_dotenv()
+    load_dotenv()
     st.set_page_config(page_title="Chat with multiple PDFs",
                        page_icon=":books:")
     st.write(css, unsafe_allow_html=True)
