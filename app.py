@@ -6,8 +6,7 @@ from langchain.embeddings import OpenAIEmbeddings, HuggingFaceInstructEmbeddings
 
 import os
 
-os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
-os.environ[""] ="sk-proj-dScQ9lYmQohioA9u7SGjT3BlbkFJb4pv9s8nJnVOibC6k69S"
+
 
 def get_pdf_text(pdf_files):
     text = ""
